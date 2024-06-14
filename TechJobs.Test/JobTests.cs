@@ -67,5 +67,23 @@
                 $"{job3.JobCoreCompetency} should be equal to 'Persistence'."
             );
         }
+
+        [TestMethod]
+
+        public void TestJobsForEquality() {
+            Assert.AreNotEqual(job3,job4);
+        }
+
+        [TestMethod]
+
+        // had to change job3 into a string in order to use the starts with and ends with methods on it
+        public void TestToStringStartsAndEndsWithNewLine()
+        {
+            Assert.IsTrue(job3.ToString().StartsWith(Environment.NewLine));
+            Assert.IsTrue(job3.ToString().EndsWith(Environment.NewLine));
+        }
+
+
+
     }
 }
