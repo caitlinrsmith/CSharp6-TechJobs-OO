@@ -69,13 +69,12 @@
         }
 
         [TestMethod]
-
-        public void TestJobsForEquality() {
-            Assert.AreNotEqual(job3,job4);
+        public void TestJobsForEquality()
+        {
+            Assert.AreNotEqual(job3, job4);
         }
 
         [TestMethod]
-
         // had to change job3 into a string in order to use the starts with and ends with methods on it
         public void TestToStringStartsAndEndsWithNewLine()
         {
@@ -83,7 +82,31 @@
             Assert.IsTrue(job3.ToString().EndsWith(Environment.NewLine));
         }
 
+        // [TestMethod]
+        // The string should contain a label for each field, followed by the data stored in that field. Each field should be on its own line. There should be a new line between each job listing.
+
+        // EX:
+        // ID:  _______
+        // Name: _______
+        // Employer: _______
+        // Location: _______
+        // Position Type: _______
+        // Core Competency: _______
 
 
+        // ID:  _______
+
+        //... more job objects to follow
+
+        // public void TestToStringContainsCorrectLabelsAndData() { 
+            
+        // }
+
+        // [TestMethod]
+        // // If a field is empty, the method should add, “Data not available” after the label.
+
+        // public void TestToStringHandlesEmptyField() {
+            
+        // }
     }
 }

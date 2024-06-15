@@ -143,8 +143,6 @@ namespace TechJobsOO.Tests
             //verify
             Assert.AreEqual(text, output, "Empty string handling error");
         }
-
-`   
     }
 
 }
