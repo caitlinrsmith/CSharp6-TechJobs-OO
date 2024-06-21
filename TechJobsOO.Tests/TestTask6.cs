@@ -1,18 +1,18 @@
 ﻿using System;
+
 namespace TechJobsOO.Tests
 {
-	[TestClass]
-	public class TestTask6
-	{
+    [TestClass]
+    public class TestTask6
+    {
         //task 6 tests will verify that the refactoring changed the number of class members and info regarding JobField.
         //Tests have been numbered.
 
-        /* TODO: Task 6: Remove this line to uncomment the tests
-         
+
         [TestMethod] //1
         public void Test_Attributes_Of_JobField()
         {
-            //setup 
+            //setup
             Type jFType = typeof(JobField);
             var expected = jFType.Attributes.ToString().Contains("Abstract") ? "true" : "false";
 
@@ -20,8 +20,7 @@ namespace TechJobsOO.Tests
             Assert.AreEqual(expected, "true", "JobField is not an abstract class");
         }
 
-
-        [TestMethod]  //2
+        [TestMethod] //2
         public void Test_DRY_Employer()
         {
             //setup
@@ -35,7 +34,6 @@ namespace TechJobsOO.Tests
             Assert.AreEqual(1, conLength, "Employer class constructors not properly refactored");
             Assert.IsTrue(methodLength < 8, "Employer class methods not properly refactored");
         }
-
 
         [TestMethod] //3
         public void Test_DRY_Location()
@@ -52,7 +50,6 @@ namespace TechJobsOO.Tests
             Assert.IsTrue(methodLength < 8, "Location class methods not properly refactored");
         }
 
-
         [TestMethod] //4
         public void Test_DRY_Position()
         {
@@ -64,10 +61,13 @@ namespace TechJobsOO.Tests
             int methodLength = methodInfos.Length;
 
             //verify
-            Assert.AreEqual(1, conLength, "PositionType class constructors not properly refactored");
+            Assert.AreEqual(
+                1,
+                conLength,
+                "PositionType class constructors not properly refactored"
+            );
             Assert.IsTrue(methodLength < 8, "PositionType class methods not properly refactored");
         }
-
 
         [TestMethod] //5
         public void Test_DRY_CoreCompetency()
@@ -80,11 +80,12 @@ namespace TechJobsOO.Tests
             int methodLength = methodInfos.Length;
 
             //verify
-            Assert.AreEqual(1, conLength, "CoreCompetency class constructors not properly refactored");
+            Assert.AreEqual(
+                1,
+                conLength,
+                "CoreCompetency class constructors not properly refactored"
+            );
             Assert.IsTrue(methodLength < 8, "CoreCompetency class methods not properly refactored");
         }
-
-        TODO: Task 6: Remove this line to uncomment the tests */
     }
 }
-

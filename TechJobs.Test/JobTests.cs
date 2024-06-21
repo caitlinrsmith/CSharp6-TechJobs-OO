@@ -24,13 +24,21 @@
             new CoreCompetency("Persistence")
         );
 
+        Job job5 = new Job(
+            "Product tester",
+            new Employer("Acme"),
+            new Location("Desert"),
+            new PositionType("Quality control"),
+            new CoreCompetency("")
+        );
+
         [TestMethod]
         public void TestSettingJobId()
         {
             //verifies that the condition is false, meaning the values should not be equal
             bool areEqual = job1.Id == job2.Id;
 
-            Assert.IsFalse(areEqual, $"The values {job1} and {job2} should not be equal.");
+            Assert.IsFalse(areEqual, $"The values {job1.Id} and {job2.Id} should not be equal.");
 
             Assert.IsTrue(
                 job2.Id - job1.Id == 1,
@@ -75,6 +83,7 @@
         }
 
         [TestMethod]
+        // Task 5.1
         // had to change job3 into a string in order to use the starts with and ends with methods on it
         public void TestToStringStartsAndEndsWithNewLine()
         {
@@ -82,31 +91,20 @@
             Assert.IsTrue(job3.ToString().EndsWith(Environment.NewLine));
         }
 
-        // [TestMethod]
-        // The string should contain a label for each field, followed by the data stored in that field. Each field should be on its own line. There should be a new line between each job listing.
+        [TestMethod]
+        public void TestToStringContainsCorrectLabelsAndData() { 
+            Assert.AreEqual(
+                "Persistence",
+                job3.JobCoreCompetency.Value,
+                $"{job3.JobCoreCompetency} should be equal to 'Persistence'."
+            );
+        }
 
-        // EX:
-        // ID:  _______
-        // Name: _______
-        // Employer: _______
-        // Location: _______
-        // Position Type: _______
-        // Core Competency: _______
+        [TestMethod]
+        // If a field is empty, the method should add, “Data not available” after the label.
 
-
-        // ID:  _______
-
-        //... more job objects to follow
-
-        // public void TestToStringContainsCorrectLabelsAndData() { 
-            
-        // }
-
-        // [TestMethod]
-        // // If a field is empty, the method should add, “Data not available” after the label.
-
-        // public void TestToStringHandlesEmptyField() {
-            
-        // }
+        public void TestToStringHandlesEmptyField() {
+            Assert.AreEqual("Data not available", job5.JobCoreCompetency.Value, $"The value {job5.JobCoreCompetency.Value} should be equal to 'Data not available'.");
+        }
     }
 }
