@@ -92,19 +92,27 @@
         }
 
         [TestMethod]
-        public void TestToStringContainsCorrectLabelsAndData() { 
-            Assert.AreEqual(
-                "Persistence",
-                job3.JobCoreCompetency.Value,
-                $"{job3.JobCoreCompetency} should be equal to 'Persistence'."
-            );
+        public void TestToStringContainsCorrectLabelsAndData()
+        {
+            Assert.IsTrue(job3.ToString().Contains("ID: 3"));
+            Assert.IsTrue(job3.ToString().Contains("Name: Product tester"));
+            Assert.IsTrue(job3.ToString().Contains("Employer: ACME"));
+            Assert.IsTrue(job3.ToString().Contains("Location: Desert"));
+            Assert.IsTrue(job3.ToString().Contains("Position Type: Quality control"));
+            Assert.IsTrue(job3.ToString().Contains("Core Competency: Persistence"));
         }
 
         [TestMethod]
         // If a field is empty, the method should add, “Data not available” after the label.
 
-        public void TestToStringHandlesEmptyField() {
-            Assert.AreEqual("Data not available", job5.JobCoreCompetency.Value, $"The value {job5.JobCoreCompetency.Value} should be equal to 'Data not available'.");
+        public void TestToStringHandlesEmptyField()
+        {
+            Assert.IsTrue(job5.ToString().Contains("ID: 5"));
+            Assert.IsTrue(job5.ToString().Contains("Name: Product tester"));
+            Assert.IsTrue(job5.ToString().Contains("Employer: ACME"));
+            Assert.IsTrue(job5.ToString().Contains("Location: Desert"));
+            Assert.IsTrue(job5.ToString().Contains("Position Type: Quality control"));
+            Assert.IsTrue(job5.ToString().Contains("Core Competency: Data not available"));
         }
     }
 }
